@@ -5,7 +5,7 @@
             <div class="col-span-2 shadow-md">
                 <Sidebar/>
             </div>
-            <div class="col-span-auto">
+            <div class="col-span-8">
                 <router-view></router-view>
             </div>
             

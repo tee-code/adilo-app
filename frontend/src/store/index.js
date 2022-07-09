@@ -6,7 +6,7 @@ const store = createStore({
             data: {
                 name: 'Oluwatobi Odekunle',
                 email: 'ooluwatobialao@gmail.com',
-                image: ''
+                image: '../../public/profile.jpg'
             },
             token: '12lkfsjfskdlfjds3949945i4'
         }

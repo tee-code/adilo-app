@@ -19,10 +19,10 @@
                 <div class="user flex justify-between items-center space-x-4">
                     <span class="text-xl font-minibold border-r-2 px-4">Help</span>
                     <div class="flex justify-between items-center space-x-4">
-                    <img class="img w-10 h-10 rounded-full" src="../assets/profile.jpg" alt="">
+                    <img class="img w-10 h-10 rounded-full" :src="user.image" alt="">
                     <div class="flex flex-col text-base">
-                        <span class="text-base font-bold">Oluwatobi Alao</span>
-                        <span>ooluwatobialao@gmail.com</span>
+                        <span class="text-base font-bold">{{ user.name }}</span>
+                        <span>{{ user.email }}</span>
                     </div>
                     </div>
                 </div>
@@ -34,10 +34,18 @@
     
 </template>
 
-<script>
-    export default {
-        name: 'Header'
-    }
+<script setup>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
+    
+const user = computed(() => {
+    return store.state.user.data
+});
+
+console.log(store, user, ' user')
+
 </script>
 
 
