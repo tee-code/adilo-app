@@ -1,11 +1,11 @@
 <template>
     <div>
         <Header />
-        <div class="grid grid-cols-12 gap-4">
-            <div class="col-span-2 shadow-md">
+        <div class="flex w-12/12 space-x-4">
+            <div class="w-2/12 shadow-md">
                 <Sidebar/>
             </div>
-            <div class="col-span-8">
+            <div class="w-10/12">
                 <router-view></router-view>
             </div>
             

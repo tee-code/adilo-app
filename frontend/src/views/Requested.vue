@@ -1,11 +1,13 @@
 <template>
-    <h1>Requested</h1>
+    <div>
+        <LivePreview />
+    </div>
+   
 </template>
 
-<script>
-    export default {
-        name: 'Requested'
-    }
+<script setup>
+import LivePreview from './LivePreview.vue'
+    
 </script>
 
 

@@ -19,7 +19,11 @@
                 <div class="user flex justify-between items-center space-x-4">
                     <span class="text-xl font-minibold border-r-2 px-4">Help</span>
                     <div class="flex justify-between items-center space-x-4">
-                    <img class="img w-10 h-10 rounded-full" :src="user.image" alt="">
+                    <div class="relative">
+                        <img class="w-10 h-10 rounded-full" :src="user.image" alt="">
+                        <span class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+                    </div>
+                   
                     <div class="flex flex-col text-base">
                         <span class="text-base font-bold">{{ user.name }}</span>
                         <span>{{ user.email }}</span>
@@ -43,8 +47,6 @@ const store = useStore();
 const user = computed(() => {
     return store.state.user.data
 });
-
-console.log(store, user, ' user')
 
 </script>
 

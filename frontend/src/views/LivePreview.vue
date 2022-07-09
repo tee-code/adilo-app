@@ -1,11 +1,14 @@
 <template>
-    <h1>Live Preview</h1>
+    <div>
+        <PreviewNotReady />
+        
+    </div>
+    
 </template>
 
-<script>
-    export default {
-        name: 'LivePreview'
-    }
+<script setup>
+import PreviewNotReady from '../components/PreviewNotReady.vue'
+   
 </script>
 
 
