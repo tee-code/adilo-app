@@ -6,7 +6,7 @@
                 <h1 class="text-xl font-bold">Say hello to the world!</h1>
                 <p class="text-sm">Record your first video/audio and share it what your team, friends, followers and customers.</p>
                 <div class="flex justify-center space-x-3">
-                    <button class="py-3 px-6 rounded-full bg-red-600 text-white flex justify-left space-x-3 shadow-lg items-center">
+                    <button data-modal-toggle="authentication-modal" class="py-3 px-6 rounded-full bg-red-600 text-white flex justify-left space-x-3 shadow-lg items-center">
                         <i class="fa-solid fa-microphone"></i>
                         <span>Start Recording</span>
                     </button>
@@ -15,6 +15,8 @@
                         <span>New Request</span>
                     </button>
                 </div>
+
+                <Modal />
             
         </div>
         </div>    
@@ -23,9 +25,11 @@
 </template>
 
 <script>
+import Modal from '../components/Modal.vue';
     export default {
-        name: 'Dashboard'
-    }
+    name: "Dashboard",
+    components: { Modal }
+}
 </script>
 
 

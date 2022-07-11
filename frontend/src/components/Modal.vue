@@ -9,20 +9,20 @@
                 </button>
                 <div class="py-6 px-6 lg:px-8">
                     <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">New Recording</h3>
-                    <form class="space-y-6" action="#">
+                    <form class="space-y-6" @submit="updateOptions">
                         <div>
                             <label for="projects" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Save the recording in </label>
-                            <select id="projects" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option selected>Select a project</option>
+                            <select v-model="options.project_id" id="projects" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option :value="0" selected>Select a project</option>
                                 <option v-for="project in projects" :value="project.id" :key="project.id">{{project.name}}</option>
                                
                             </select>
                         </div>
                         <div>
                             
-                            <label for="green-toggle" class="inline-flex relative items-center mr-5 cursor-pointer">
+                            <label for="record-screen" class="inline-flex relative items-center mr-5 cursor-pointer">
                                 
-                                <input type="checkbox" value="" id="green-toggle" class="sr-only peer" checked>
+                                <input v-model="options.recordScreen" type="checkbox" value="" id="record-screen" class="sr-only peer" checked>
                                 <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
                                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Record Screen</span>
                             </label>
@@ -31,9 +31,9 @@
                         </div>
                         <div>
                             
-                            <label for="green-toggle" class="inline-flex relative items-center mr-5 cursor-pointer">
+                            <label for="record-camera" class="inline-flex relative items-center mr-5 cursor-pointer">
                                 
-                                <input type="checkbox" value="" id="green-toggle" class="sr-only peer" checked>
+                                <input v-model="options.recordCamera" type="checkbox" value="" id="record-camera" class="sr-only peer" checked>
                                 <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
                                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Record Camera</span>
                             </label>
@@ -42,9 +42,9 @@
                         </div>
                         <div>
                             
-                            <label for="green-toggle" class="inline-flex relative items-center mr-5 cursor-pointer">
+                            <label for="record-audio" class="inline-flex relative items-center mr-5 cursor-pointer">
                                 
-                                <input type="checkbox" value="" id="green-toggle" class="sr-only peer" checked>
+                                <input v-model="options.recordAudio" type="checkbox" value="" id="record-audio" class="sr-only peer" checked>
                                 <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
                                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Record Mic</span>
                             </label>
@@ -63,11 +63,39 @@
 <script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 const store = useStore();
 
 const projects = computed(() => {
     return store.state.projects;
 });
+
+const options = {
+    isReady: true,
+    recordScreen: false,
+    recordCamera: false,
+    recordAudio: false,
+    project_id: 0
+}
+
+const router = useRouter();
+
+const updateOptions = (e) => {
+    
+    e.preventDefault();
+
+    store.dispatch('updateOptions', options).then((res) => {
+        if(res.success){
+            
+            router.push({
+                name: 'LivePreview'
+            });
+
+        }
+    });
+    
+}
+
 
 </script>
 
