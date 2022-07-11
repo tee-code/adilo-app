@@ -8,7 +8,7 @@
                     </div>
                     <span class="text-xl font-semibold">Adilo</span>
                 </div>
-                <ul class="nav flex items-center justify-between space-x-6 text-base cursor-pointer">
+                <ul class="hidden lg:flex nav items-center justify-between space-x-6 text-base cursor-pointer">
                     <li>Projects</li>
                     <li>Tools & App</li>
                     <li>Channels</li>
@@ -16,7 +16,7 @@
                     <li>Analytics</li>
                     <li>Settings</li>
                 </ul>
-                <div class="user flex justify-between items-center space-x-4">
+                <div class="hidden lg:flex user justify-between items-center space-x-4">
                     <span class="text-xl font-minibold border-r-2 px-4">Help</span>
                     <div class="flex justify-between items-center space-x-4">
                     <div class="relative">
@@ -30,6 +30,11 @@
                     </div>
                     </div>
                 </div>
+                <div class="block lg:hidden">
+                    <i data-modal-toggle="nav-modal" class="cursor-pointer fa-solid fa-bars"></i>
+                </div>
+                
+                <MobileNav />
             </div>
         </div>
     </header>
@@ -39,6 +44,7 @@
 </template>
 
 <script setup>
+import MobileNav from '../components/MobileNav.vue';
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
