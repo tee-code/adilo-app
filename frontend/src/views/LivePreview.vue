@@ -46,7 +46,8 @@ onBeforeMount(() => {
         recordScreen();
     }
 
-    if(options.recordVideo){
+    if(options.recordCamera){
+    
         recordVideo();
     }
 
@@ -59,7 +60,6 @@ const videoOutput = ref(null);
 let downloadLink = ref(null);
 
 onMounted(() => {
-    router.go();
     videoElement = videoOutput.value;
     downloadLink = downloadLink.value;
 });
