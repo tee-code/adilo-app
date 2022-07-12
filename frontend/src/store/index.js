@@ -4,12 +4,12 @@ import { createStore } from 'vuex';
 const defaultUserData = {
     name: 'Oluwatobi Odekunle',
     email: 'ooluwatobialao@gmail.com',
-    image: '../../public/profile.jpg'
+    image: '../../profile.jpg'
 }
 
 const defaultRecordings = [{
         project_id: 1,
-        image: "../../public/artist1.jpg",
+        image: "../../artist1.jpg",
         title: "Getting it right the first time",
         description: "The Video description is shown here if the user has added it.",
         views: 324,
@@ -18,7 +18,7 @@ const defaultRecordings = [{
     },
     {
         project_id: 2,
-        image: "../../public/artist2.jpg",
+        image: "../../artist2.jpg",
         title: "Getting it right the first time",
         description: "The Video description is shown here if the user has added it.",
         views: 324,
@@ -27,7 +27,7 @@ const defaultRecordings = [{
     },
     {
         project_id: 3,
-        image: "../../public/artist3.jpg",
+        image: "../../artist3.jpg",
         title: "Getting it right the first time",
         description: "The Video description is shown here if the user has added it.",
         views: 324,
@@ -36,7 +36,7 @@ const defaultRecordings = [{
     },
     {
         project_id: 4,
-        image: "../../public/artist4.jpg",
+        image: "../../artist4.jpg",
         title: "Getting it right the first time",
         description: "The Video description is shown here if the user has added it.",
         views: 324,
@@ -45,7 +45,7 @@ const defaultRecordings = [{
     },
     {
         project_id: 1,
-        image: "../../public/artist5.jpg",
+        image: "../../artist5.jpg",
         title: "Getting it right the first time",
         description: "The Video description is shown here if the user has added it.",
         views: 324,
